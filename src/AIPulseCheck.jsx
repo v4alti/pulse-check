@@ -386,29 +386,36 @@ export default function AIPulseCheck() {
         .marble-bg {
           position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;
           background: #e8edf4;
+          overflow: hidden;
         }
-        .marble-bg::before {
-          content:''; position:absolute; top:0; left:0; width:100%; height:100%;
-          background:
-            radial-gradient(ellipse 600px 300px at 15% 20%, rgba(255,255,255,0.9) 0%, transparent 70%),
-            radial-gradient(ellipse 500px 250px at 75% 15%, rgba(255,255,255,0.7) 0%, transparent 60%),
-            radial-gradient(ellipse 400px 500px at 85% 60%, rgba(255,255,255,0.8) 0%, transparent 65%),
-            radial-gradient(ellipse 300px 400px at 25% 75%, rgba(255,255,255,0.6) 0%, transparent 60%),
-            radial-gradient(ellipse 700px 200px at 50% 50%, rgba(255,255,255,0.5) 0%, transparent 55%);
-        }
-        .marble-bg::after {
-          content:''; position:absolute; top:0; left:0; width:100%; height:100%;
-          background:
-            linear-gradient(160deg, transparent 30%, rgba(180,190,210,0.25) 32%, rgba(180,190,210,0.15) 33%, transparent 35%),
-            linear-gradient(200deg, transparent 45%, rgba(170,182,200,0.2) 47%, rgba(170,182,200,0.1) 48%, transparent 50%),
-            linear-gradient(140deg, transparent 60%, rgba(185,195,215,0.2) 62%, rgba(185,195,215,0.08) 63%, transparent 65%),
-            linear-gradient(170deg, transparent 15%, rgba(175,188,208,0.18) 17%, rgba(175,188,208,0.06) 18%, transparent 20%),
-            linear-gradient(210deg, transparent 70%, rgba(190,200,218,0.22) 72%, rgba(190,200,218,0.08) 73%, transparent 75%);
-          filter: blur(3px);
+        .marble-bg svg {
+          position:absolute; top:0; left:0; width:100%; height:100%;
         }
       `}</style>
 
-      <div className="marble-bg" />
+      <div className="marble-bg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <defs>
+            <filter id="marble" x="0%" y="0%" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.015 0.004" numOctaves="5" seed="3" result="noise" />
+              <feTurbulence type="turbulence" baseFrequency="0.008 0.003" numOctaves="3" seed="7" result="noise2" />
+              <feMerge result="combined">
+                <feMergeNode in="noise" />
+                <feMergeNode in="noise2" />
+              </feMerge>
+              <feColorMatrix type="saturate" values="0" result="gray" />
+              <feComponentTransfer result="veins">
+                <feFuncR type="linear" slope="0.12" intercept="0.88" />
+                <feFuncG type="linear" slope="0.12" intercept="0.90" />
+                <feFuncB type="linear" slope="0.14" intercept="0.94" />
+                <feFuncA type="linear" slope="0.6" intercept="0.4" />
+              </feComponentTransfer>
+            </filter>
+          </defs>
+          <rect width="100%" height="100%" fill="#e8edf4" />
+          <rect width="100%" height="100%" filter="url(#marble)" />
+        </svg>
+      </div>
 
       {/* ── SHARED BRAND HEADER ── */}
       <header style={{ background:"rgba(232,237,244,0.75)", backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(15,23,42,0.06)", padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", position:"sticky", top:0, zIndex:100, position:"relative", zIndex:10 }}>
