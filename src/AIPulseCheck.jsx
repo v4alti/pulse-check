@@ -382,10 +382,34 @@ export default function AIPulseCheck() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
         @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
         * { box-sizing:border-box; margin:0; } input:focus,textarea:focus { outline:none; }
+        body { margin:0; }
+        .marble-bg {
+          position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;
+          background:
+            radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.6) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.4) 0%, transparent 40%),
+            radial-gradient(ellipse at 40% 80%, rgba(203,213,225,0.3) 0%, transparent 45%),
+            radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.5) 0%, transparent 35%),
+            radial-gradient(ellipse at 10% 90%, rgba(191,203,219,0.25) 0%, transparent 40%),
+            radial-gradient(ellipse at 90% 80%, rgba(255,255,255,0.35) 0%, transparent 30%),
+            linear-gradient(135deg, rgba(226,232,240,0.4) 0%, transparent 50%),
+            linear-gradient(225deg, rgba(203,213,225,0.3) 0%, transparent 40%),
+            linear-gradient(45deg, rgba(241,245,249,0.5) 10%, transparent 50%);
+        }
+        .marble-bg::before {
+          content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+          background:
+            radial-gradient(ellipse 800px 200px at 30% 30%, rgba(186,196,214,0.2) 0%, transparent 100%),
+            radial-gradient(ellipse 600px 150px at 60% 70%, rgba(186,196,214,0.15) 0%, transparent 100%),
+            radial-gradient(ellipse 400px 100px at 80% 40%, rgba(203,213,225,0.2) 0%, transparent 100%);
+          filter: blur(30px);
+        }
       `}</style>
 
+      <div className="marble-bg" />
+
       {/* ── SHARED BRAND HEADER ── */}
-      <header style={{ background:"rgba(232,237,244,0.85)", backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(15,23,42,0.08)", padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", position:"sticky", top:0, zIndex:100 }}>
+      <header style={{ background:"rgba(232,237,244,0.75)", backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(15,23,42,0.06)", padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", position:"sticky", top:0, zIndex:100, position:"relative", zIndex:10 }}>
         <a href="https://altipointai.com" style={{ color:"#0f172a", textDecoration:"none", fontWeight:800, fontSize:"1.1rem", fontFamily:"'Inter',sans-serif" }}>
           Altipoint <span style={{ color:"#8b5cf6" }}>AI</span>
         </a>
@@ -394,7 +418,7 @@ export default function AIPulseCheck() {
         </a>
       </header>
 
-      <div style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", padding:"0 16px" }}>
+      <div style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", padding:"0 16px", position:"relative", zIndex:1 }}>
       <div style={{ width:"100%", maxWidth:560, paddingTop:28, paddingBottom:48 }}>
 
         {/* HEADER — 5 clicks opens admin */}
