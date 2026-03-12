@@ -20,14 +20,14 @@ const BRAND = {
 };
 
 const COLORS = {
-  bg: "#0B0F14", bgCard: "#131923", bgCardAlt: "#1A2332",
-  surface: "#1E293B", surfaceHover: "#263347",
-  accent: "#7C3AED", accentLight: "#A78BFA", accentGlow: "rgba(124,58,237,0.12)",
-  green: "#10B981", greenGlow: "rgba(16,185,129,0.12)",
-  amber: "#F59E0B", amberGlow: "rgba(245,158,11,0.12)",
+  bg: "#f8fafc", bgCard: "#ffffff", bgCardAlt: "#f1f5f9",
+  surface: "#e2e8f0", surfaceHover: "#cbd5e1",
+  accent: "#8b5cf6", accentLight: "#a78bfa", accentGlow: "rgba(139,92,246,0.1)",
+  green: "#10B981", greenGlow: "rgba(16,185,129,0.1)",
+  amber: "#F59E0B", amberGlow: "rgba(245,158,11,0.1)",
   red: "#EF4444", blue: "#3B82F6", pink: "#EC4899", teal: "#14B8A6",
-  text: "#F1F5F9", textMuted: "#94A3B8", textDim: "#64748B",
-  border: "#1E293B",
+  text: "#0f172a", textMuted: "#64748b", textDim: "#94a3b8",
+  border: "rgba(15,23,42,0.08)",
 };
 
 const STAGES = [
@@ -261,7 +261,7 @@ function AdminPanel({ onClose }) {
         </div>
       </div>
 
-      <div style={{ padding:14, borderRadius:12, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:12 }}>
+      <div style={{ padding:14, borderRadius:99, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:12 }}>
         <div style={{ fontSize:28, fontWeight:800, color:COLORS.text }}>{subs.length}</div>
         <div style={{ fontSize:12, color:COLORS.textDim }}>Total submissions</div>
       </div>
@@ -359,19 +359,19 @@ export default function AIPulseCheck() {
   };
 
   return (
-    <div style={{ background:COLORS.bg, minHeight:"100vh", color:COLORS.text, fontFamily:"'DM Sans','Helvetica Neue',sans-serif", display:"flex", flexDirection:"column" }}>
+    <div style={{ background:COLORS.bg, minHeight:"100vh", color:COLORS.text, fontFamily:"'Inter',ui-sans-serif,system-ui,sans-serif", display:"flex", flexDirection:"column" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
         @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
         * { box-sizing:border-box; margin:0; } input:focus,textarea:focus { outline:none; }
       `}</style>
 
       {/* ── SHARED BRAND HEADER ── */}
-      <header style={{ background:"#0B0F14", borderBottom:"1px solid #1E293B", padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", position:"sticky", top:0, zIndex:100 }}>
-        <a href="https://altipointai.com" style={{ color:"#F1F5F9", textDecoration:"none", fontWeight:700, fontSize:"1.1rem" }}>
-          Altipoint <span style={{ color:"#7C3AED" }}>AI</span>
+      <header style={{ background:"rgba(248,250,252,0.85)", backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(15,23,42,0.08)", padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", position:"sticky", top:0, zIndex:100 }}>
+        <a href="https://altipointai.com" style={{ color:"#0f172a", textDecoration:"none", fontWeight:800, fontSize:"1.1rem", fontFamily:"'Inter',sans-serif" }}>
+          Altipoint <span style={{ color:"#8b5cf6" }}>AI</span>
         </a>
-        <a href="https://altipointai.com" style={{ color:"#94A3B8", textDecoration:"none", fontSize:"0.85rem" }}>
+        <a href="https://altipointai.com" style={{ color:"#64748b", textDecoration:"none", fontSize:"0.85rem", fontFamily:"'Inter',sans-serif" }}>
           ← Back to main site
         </a>
       </header>
@@ -382,7 +382,7 @@ export default function AIPulseCheck() {
         {/* HEADER — 5 clicks opens admin */}
         <div onClick={handleHeaderClick} style={{ textAlign:"center", marginBottom:24, cursor:"default", userSelect:"none" }}>
           <div style={{ fontSize:10, fontWeight:800, letterSpacing:3, color:COLORS.accent, textTransform:"uppercase", marginBottom:4 }}>{BRAND.firm}</div>
-          <div style={{ fontSize:19, fontWeight:800, background:"linear-gradient(135deg,#F1F5F9,#A78BFA)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>{BRAND.name}</div>
+          <div style={{ fontSize:19, fontWeight:800, background:"linear-gradient(to right,#3b82f6,#8b5cf6,#ec4899)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>{BRAND.name}</div>
         </div>
 
         {/* ADMIN PANEL */}
@@ -403,7 +403,7 @@ export default function AIPulseCheck() {
               ))}
             </div>
 
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr", gap:6, marginBottom:28, padding:14, borderRadius:12, background:COLORS.bgCard, border:`1px solid ${COLORS.border}` }}>
+            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr 1fr", gap:6, marginBottom:28, padding:14, borderRadius:99, background:COLORS.bgCard, border:`1px solid ${COLORS.border}` }}>
               {STAGES.map(s => (
                 <div key={s.id} style={{ textAlign:"center" }}>
                   <div style={{ fontSize:18, marginBottom:2 }}>{s.icon}</div>
@@ -412,7 +412,7 @@ export default function AIPulseCheck() {
               ))}
             </div>
 
-            <button onClick={() => transition("context")} style={{ padding:"13px 44px", borderRadius:12, border:"none", cursor:"pointer", background:`linear-gradient(135deg,${COLORS.accent},#6D28D9)`, color:"#fff", fontSize:14, fontWeight:700, fontFamily:"inherit", boxShadow:`0 4px 20px ${COLORS.accent}44` }}>
+            <button onClick={() => transition("context")} style={{ padding:"13px 44px", borderRadius:99, border:"none", cursor:"pointer", background:`linear-gradient(135deg,#3b82f6,#8b5cf6)`, color:"#fff", fontSize:14, fontWeight:700, fontFamily:"inherit", boxShadow:"0 4px 12px rgba(59,130,246,0.15)" }}>
               Start Assessment
             </button>
           </div>
@@ -421,7 +421,7 @@ export default function AIPulseCheck() {
         {/* ═══ CONTEXT ═══ */}
         {!showAdmin && screen === "context" && (
           <div style={{ animation:"fadeUp 0.5s ease" }}>
-            <div style={{ padding:18, borderRadius:14, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:14 }}>
+            <div style={{ padding:18, borderRadius:16, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:14 }}>
               <div style={{ fontSize:11, fontWeight:800, letterSpacing:2, color:COLORS.accent, marginBottom:10 }}>ABOUT YOUR ORGANIZATION</div>
               <p style={{ fontSize:12, color:COLORS.textMuted, marginBottom:16, lineHeight:1.5 }}>This lets us benchmark your results against similar organizations.</p>
 
@@ -442,7 +442,7 @@ export default function AIPulseCheck() {
               <label style={{ fontSize:11, fontWeight:700, color:COLORS.textMuted, marginBottom:4, display:"block" }}>Biggest AI challenge right now? <span style={{ fontWeight:400, color:COLORS.textDim }}>(optional)</span></label>
               <textarea value={challenge} onChange={e=>setChallenge(e.target.value)} placeholder="E.g., 'We don't know where to start'..." rows={2} style={{ width:"100%", padding:"8px 12px", borderRadius:8, border:`1px solid ${COLORS.border}`, background:COLORS.surface, color:COLORS.text, fontSize:12, fontFamily:"inherit", resize:"vertical", lineHeight:1.4 }} />
             </div>
-            <button onClick={() => { if(industry&&companySize) transition("questions"); }} disabled={!industry||!companySize} style={{ width:"100%", padding:"13px 0", borderRadius:12, border:"none", cursor:industry&&companySize?"pointer":"not-allowed", background:industry&&companySize?`linear-gradient(135deg,${COLORS.accent},#6D28D9)`:COLORS.surface, color:industry&&companySize?"#fff":COLORS.textDim, fontSize:13, fontWeight:700, fontFamily:"inherit", opacity:industry&&companySize?1:0.5 }}>
+            <button onClick={() => { if(industry&&companySize) transition("questions"); }} disabled={!industry||!companySize} style={{ width:"100%", padding:"13px 0", borderRadius:99, border:"none", cursor:industry&&companySize?"pointer":"not-allowed", background:industry&&companySize?`linear-gradient(135deg,#3b82f6,#8b5cf6)`:COLORS.surface, color:industry&&companySize?"#fff":COLORS.textDim, fontSize:13, fontWeight:700, fontFamily:"inherit", opacity:industry&&companySize?1:0.5 }}>
               {industry&&companySize ? "Begin Assessment →" : "Select industry and size to continue"}
             </button>
           </div>
@@ -457,7 +457,7 @@ export default function AIPulseCheck() {
               <span style={{ fontSize:11, color:COLORS.textDim, fontFamily:"'JetBrains Mono',monospace" }}>{currentQ+1}/{totalQ}</span>
             </div>
 
-            <div style={{ padding:"20px 18px", borderRadius:14, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:10 }}>
+            <div style={{ padding:"20px 18px", borderRadius:16, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:10 }}>
               <h3 style={{ fontSize:16, fontWeight:700, lineHeight:1.4, marginBottom:currentQuestion.subtext?6:16, color:COLORS.text }}>{currentQuestion.text}</h3>
               {currentQuestion.subtext && <p style={{ fontSize:11, color:COLORS.textDim, marginBottom:16, fontStyle:"italic" }}>{currentQuestion.subtext}</p>}
 
@@ -491,7 +491,7 @@ export default function AIPulseCheck() {
                 </div>
               ))}
             </div>
-            <button onClick={handleSubmitEmail} disabled={!email||!name} style={{ width:"100%", padding:"13px 0", borderRadius:12, border:"none", cursor:email&&name?"pointer":"not-allowed", background:email&&name?`linear-gradient(135deg,${COLORS.accent},#6D28D9)`:COLORS.surface, color:email&&name?"#fff":COLORS.textDim, fontSize:14, fontWeight:700, fontFamily:"inherit", opacity:email&&name?1:0.5 }}>
+            <button onClick={handleSubmitEmail} disabled={!email||!name} style={{ width:"100%", padding:"13px 0", borderRadius:99, border:"none", cursor:email&&name?"pointer":"not-allowed", background:email&&name?`linear-gradient(135deg,#3b82f6,#8b5cf6)`:COLORS.surface, color:email&&name?"#fff":COLORS.textDim, fontSize:14, fontWeight:700, fontFamily:"inherit", opacity:email&&name?1:0.5 }}>
               See My Results →
             </button>
             <p style={{ fontSize:10, color:COLORS.textDim, marginTop:10 }}>We'll send a copy. No spam, ever.</p>
@@ -518,7 +518,7 @@ export default function AIPulseCheck() {
             </div>
 
             {/* Radar */}
-            <div style={{ padding:18, borderRadius:14, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:14, display:"flex", flexDirection:"column", alignItems:"center" }}>
+            <div style={{ padding:18, borderRadius:16, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:14, display:"flex", flexDirection:"column", alignItems:"center" }}>
               <div style={{ fontSize:10, fontWeight:800, letterSpacing:2, color:COLORS.textDim, marginBottom:10 }}>DIMENSION BREAKDOWN</div>
               <RadarChart dimScores={dimScores} size={220} />
               <div style={{ display:"flex", gap:10, marginTop:14, flexWrap:"wrap", justifyContent:"center" }}>
@@ -532,7 +532,7 @@ export default function AIPulseCheck() {
             </div>
 
             {/* Observations */}
-            <div style={{ padding:18, borderRadius:14, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:14 }}>
+            <div style={{ padding:18, borderRadius:16, background:COLORS.bgCard, border:`1px solid ${COLORS.border}`, marginBottom:14 }}>
               <div style={{ fontSize:10, fontWeight:800, letterSpacing:2, color:COLORS.textDim, marginBottom:12 }}>KEY OBSERVATIONS</div>
               <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
                 {observations.map((obs,i) => (
@@ -554,11 +554,11 @@ export default function AIPulseCheck() {
             {saved && <div style={{ padding:"8px 14px", borderRadius:8, background:`${COLORS.green}12`, border:`1px solid ${COLORS.green}33`, fontSize:11, color:COLORS.green, marginBottom:14, textAlign:"center" }}>✓ Your results have been saved</div>}
 
             {/* CTA */}
-            <div style={{ padding:22, borderRadius:14, background:`linear-gradient(135deg,${COLORS.accentGlow},${COLORS.amberGlow})`, border:`1.5px solid ${COLORS.accent}33`, textAlign:"center", marginBottom:14 }}>
+            <div style={{ padding:22, borderRadius:16, background:`linear-gradient(135deg,${COLORS.accentGlow},${COLORS.amberGlow})`, border:`1.5px solid ${COLORS.accent}33`, textAlign:"center", marginBottom:14 }}>
               <div style={{ fontSize:10, fontWeight:800, letterSpacing:2, color:COLORS.amber, marginBottom:6 }}>UNLOCK YOUR FULL REPORT</div>
               <h3 style={{ fontSize:16, fontWeight:800, marginBottom:6 }}>Want the detailed breakdown with actionable recommendations?</h3>
               <p style={{ fontSize:12, color:COLORS.textMuted, lineHeight:1.6, marginBottom:16, maxWidth:400, marginInline:"auto" }}>60-minute consultation: pillar-by-pillar deep dive, prioritized AI use cases, and a 90-day action plan.</p>
-              <button style={{ padding:"12px 36px", borderRadius:12, border:"none", cursor:"pointer", background:`linear-gradient(135deg,${COLORS.accent},#6D28D9)`, color:"#fff", fontSize:13, fontWeight:700, fontFamily:"inherit", boxShadow:`0 4px 20px ${COLORS.accent}44` }}>
+              <button style={{ padding:"12px 36px", borderRadius:99, border:"none", cursor:"pointer", background:`linear-gradient(135deg,#3b82f6,#8b5cf6)`, color:"#fff", fontSize:13, fontWeight:700, fontFamily:"inherit", boxShadow:"0 4px 12px rgba(59,130,246,0.15)" }}>
                 {BRAND.ctaText} →
               </button>
             </div>
@@ -575,8 +575,8 @@ export default function AIPulseCheck() {
       </div>
 
       {/* ── SHARED BRAND FOOTER ── */}
-      <footer style={{ background:"#0B0F14", borderTop:"1px solid #1E293B", padding:"24px", textAlign:"center", color:"#64748B", fontSize:"0.85rem" }}>
-        © 2026 AltiPoint AI · Privacy &amp; AI Consulting · <a href="https://altipointai.com" style={{ color:"#7C3AED", textDecoration:"none" }}>altipointai.com</a>
+      <footer style={{ background:"#f8fafc", borderTop:"1px solid rgba(15,23,42,0.08)", padding:"24px", textAlign:"center", color:"#64748b", fontSize:"0.85rem", fontFamily:"'Inter',sans-serif" }}>
+        © 2026 AltiPoint AI · Privacy &amp; AI Consulting · <a href="https://altipointai.com" style={{ color:"#8b5cf6", textDecoration:"none" }}>altipointai.com</a>
       </footer>
     </div>
   );
