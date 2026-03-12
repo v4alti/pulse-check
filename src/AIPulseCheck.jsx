@@ -385,24 +385,26 @@ export default function AIPulseCheck() {
         body { margin:0; }
         .marble-bg {
           position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;
-          background:
-            radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.6) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.4) 0%, transparent 40%),
-            radial-gradient(ellipse at 40% 80%, rgba(203,213,225,0.3) 0%, transparent 45%),
-            radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.5) 0%, transparent 35%),
-            radial-gradient(ellipse at 10% 90%, rgba(191,203,219,0.25) 0%, transparent 40%),
-            radial-gradient(ellipse at 90% 80%, rgba(255,255,255,0.35) 0%, transparent 30%),
-            linear-gradient(135deg, rgba(226,232,240,0.4) 0%, transparent 50%),
-            linear-gradient(225deg, rgba(203,213,225,0.3) 0%, transparent 40%),
-            linear-gradient(45deg, rgba(241,245,249,0.5) 10%, transparent 50%);
+          background: #e8edf4;
         }
         .marble-bg::before {
           content:''; position:absolute; top:0; left:0; width:100%; height:100%;
           background:
-            radial-gradient(ellipse 800px 200px at 30% 30%, rgba(186,196,214,0.2) 0%, transparent 100%),
-            radial-gradient(ellipse 600px 150px at 60% 70%, rgba(186,196,214,0.15) 0%, transparent 100%),
-            radial-gradient(ellipse 400px 100px at 80% 40%, rgba(203,213,225,0.2) 0%, transparent 100%);
-          filter: blur(30px);
+            radial-gradient(ellipse 600px 300px at 15% 20%, rgba(255,255,255,0.9) 0%, transparent 70%),
+            radial-gradient(ellipse 500px 250px at 75% 15%, rgba(255,255,255,0.7) 0%, transparent 60%),
+            radial-gradient(ellipse 400px 500px at 85% 60%, rgba(255,255,255,0.8) 0%, transparent 65%),
+            radial-gradient(ellipse 300px 400px at 25% 75%, rgba(255,255,255,0.6) 0%, transparent 60%),
+            radial-gradient(ellipse 700px 200px at 50% 50%, rgba(255,255,255,0.5) 0%, transparent 55%);
+        }
+        .marble-bg::after {
+          content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+          background:
+            linear-gradient(160deg, transparent 30%, rgba(180,190,210,0.25) 32%, rgba(180,190,210,0.15) 33%, transparent 35%),
+            linear-gradient(200deg, transparent 45%, rgba(170,182,200,0.2) 47%, rgba(170,182,200,0.1) 48%, transparent 50%),
+            linear-gradient(140deg, transparent 60%, rgba(185,195,215,0.2) 62%, rgba(185,195,215,0.08) 63%, transparent 65%),
+            linear-gradient(170deg, transparent 15%, rgba(175,188,208,0.18) 17%, rgba(175,188,208,0.06) 18%, transparent 20%),
+            linear-gradient(210deg, transparent 70%, rgba(190,200,218,0.22) 72%, rgba(190,200,218,0.08) 73%, transparent 75%);
+          filter: blur(3px);
         }
       `}</style>
 
