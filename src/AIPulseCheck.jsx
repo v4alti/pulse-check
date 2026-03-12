@@ -189,14 +189,32 @@ function getObservations(dimScores, overall) {
   return obs.slice(0, 3);
 }
 
-// ── STORAGE HELPERS ──
-const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxpY6AtfHmvduNe1iTxae1tKX-LnN9_fDIS0QxsFc7XpV0PooUzVsj5tL0QfahOsymE-w/exec";
+// ── STORAGE HELPERS (Supabase) ──
+const SUPABASE_URL = "https://rdckyqksixeyofrjpuai.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkY2t5cWtzaXhleW9mcmpwdWFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyNzY3MTksImV4cCI6MjA4ODg1MjcxOX0._ihr7b_fXPaEWwJD4yFSwn-SrwsLpkN7sZ4zZFQUuGY";
 async function saveSubmission(data) {
   try {
-    const res = await fetch(WEBHOOK_URL, {
+    const row = {
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      industry: data.industry,
+      company_size: data.companySize,
+      challenge: data.challenge,
+      capability_score: data.dimScores?.maturity || null,
+      data_score: data.dimScores?.data || null,
+      strategy_score: data.dimScores?.strategy || null,
+      overall_score: data.overallScore,
+      stage: data.stage,
+    };
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/pulse_submissions`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify(row)
     });
     return res.ok;
   } catch (e) { console.error("Submission failed:", e); return false; }
