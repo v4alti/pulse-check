@@ -397,18 +397,18 @@ export default function AIPulseCheck() {
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
           <defs>
             <filter id="marble" x="0%" y="0%" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.015 0.004" numOctaves="5" seed="3" result="noise" />
-              <feTurbulence type="turbulence" baseFrequency="0.008 0.003" numOctaves="3" seed="7" result="noise2" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.012 0.003" numOctaves="6" seed="3" result="noise" />
+              <feTurbulence type="turbulence" baseFrequency="0.006 0.002" numOctaves="4" seed="12" result="noise2" />
               <feMerge result="combined">
                 <feMergeNode in="noise" />
                 <feMergeNode in="noise2" />
               </feMerge>
               <feColorMatrix type="saturate" values="0" result="gray" />
               <feComponentTransfer result="veins">
-                <feFuncR type="linear" slope="0.12" intercept="0.88" />
-                <feFuncG type="linear" slope="0.12" intercept="0.90" />
-                <feFuncB type="linear" slope="0.14" intercept="0.94" />
-                <feFuncA type="linear" slope="0.6" intercept="0.4" />
+                <feFuncR type="linear" slope="0.35" intercept="0.72" />
+                <feFuncG type="linear" slope="0.35" intercept="0.75" />
+                <feFuncB type="linear" slope="0.38" intercept="0.82" />
+                <feFuncA type="linear" slope="0.85" intercept="0.15" />
               </feComponentTransfer>
             </filter>
           </defs>
