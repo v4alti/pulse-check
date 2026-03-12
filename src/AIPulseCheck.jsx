@@ -20,7 +20,7 @@ const BRAND = {
 };
 
 const COLORS = {
-  bg: "#f8fafc", bgCard: "#ffffff", bgCardAlt: "#f1f5f9",
+  bg: "#e8edf4", bgCard: "#ffffff", bgCardAlt: "#f1f5f9",
   surface: "#e2e8f0", surfaceHover: "#cbd5e1",
   accent: "#8b5cf6", accentLight: "#a78bfa", accentGlow: "rgba(139,92,246,0.1)",
   green: "#10B981", greenGlow: "rgba(16,185,129,0.1)",
@@ -385,7 +385,7 @@ export default function AIPulseCheck() {
       `}</style>
 
       {/* ── SHARED BRAND HEADER ── */}
-      <header style={{ background:"rgba(248,250,252,0.85)", backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(15,23,42,0.08)", padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", position:"sticky", top:0, zIndex:100 }}>
+      <header style={{ background:"rgba(232,237,244,0.85)", backdropFilter:"blur(20px)", borderBottom:"1px solid rgba(15,23,42,0.08)", padding:"14px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", position:"sticky", top:0, zIndex:100 }}>
         <a href="https://altipointai.com" style={{ color:"#0f172a", textDecoration:"none", fontWeight:800, fontSize:"1.1rem", fontFamily:"'Inter',sans-serif" }}>
           Altipoint <span style={{ color:"#8b5cf6" }}>AI</span>
         </a>
@@ -593,7 +593,7 @@ export default function AIPulseCheck() {
       </div>
 
       {/* ── SHARED BRAND FOOTER ── */}
-      <footer style={{ background:"#f8fafc", borderTop:"1px solid rgba(15,23,42,0.08)", padding:"24px", textAlign:"center", color:"#64748b", fontSize:"0.85rem", fontFamily:"'Inter',sans-serif" }}>
+      <footer style={{ background:"#e8edf4", borderTop:"1px solid rgba(15,23,42,0.08)", padding:"24px", textAlign:"center", color:"#64748b", fontSize:"0.85rem", fontFamily:"'Inter',sans-serif" }}>
         © 2026 AltiPoint AI · Privacy &amp; AI Consulting · <a href="https://altipointai.com" style={{ color:"#8b5cf6", textDecoration:"none" }}>altipointai.com</a>
       </footer>
     </div>
